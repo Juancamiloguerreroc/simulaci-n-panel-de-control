@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control IoT - Sensores</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌐 Panel de Control IoT</h1>
+            <p>Monitoreo en tiempo real de sensores industriales</p>
+        </div>
+
+        <div class="status-bar">
+            <div class="connection-status">
+                <div class="status-dot"></div>
+                <span>Conexión activa</span>
+            </div>
+            <div class="last-update">
+                Última actualización: <span id="lastUpdate">--:--:--</span>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value" id="totalSensors">4</div>
+                <div class="stat-label">Sensores Activos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="alertCount">0</div>
+                <div class="stat-label">Alertas Activas</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="dataPoints">0</div>
+                <div class="stat-label">Datos Recibidos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="uptime">00:00:00</div>
+                <div class="stat-label">Tiempo Activo</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <button class="btn btn-primary" onclick="startMonitoring()">🚀 Iniciar Monitoreo</button>
+            <button class="btn btn-danger" onclick="stopMonitoring()">⏹️ Detener Monitoreo</button>
+            <button class="btn btn-warning" onclick="simulateAlert()">⚠️ Simular Alerta</button>
+            <button class="btn" onclick="clearAlerts()">🧹 Limpiar Alertas</button>
+            <button class="btn" onclick="saveData()">💾 Guardar Datos</button>
+        </div>
+
+        <div class="sensors-grid" id="sensorsGrid">
+            <!-- Los sensores se generarán dinámicamente -->
+        </div>
+
+        <div class="alerts-panel">
+            <div class="alerts-header">
+                <h3>🚨 Alertas del Sistema</h3>
+                <span id="alertsCount">0 alertas</span>
+            </div>
+            <div id="alertsList">
+                <p style="opacity: 0.7; text-align: center;">No hay alertas activas</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="notification" id="notification"></div>
+
+    <script src="script.js"></script>
+    </body>
+    </html>
